@@ -4,9 +4,9 @@ let db = require("../database/models");
 let cancionesController = {
  
     crear: function(req, res){
-            db.genero.findAll()
+            db.Genero.findAll()
             .then(function(generos) {
-                return res.render("listadoCanciones", {generos:generos})
+                return res.render("listadoCanciones", {generos:generos});
             })
     }
 
