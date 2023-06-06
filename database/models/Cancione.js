@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
         })
 
 
-        Cancione.belongsToMany(models.Artista, {
+        cancione.belongsToMany(models.Artista, {
             as:"artistas",
             through: "artista_cancion"
         })
