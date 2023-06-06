@@ -1,16 +1,8 @@
-let db = require("../database/models");
+const DB = require("../database/models");
+const Op = DB.Sequelize.Op;
 
-
-let cancionesController = {
- 
-    crear: function(req, res){
-            db.Genero.findAll()
-            .then(function(generos) {
-                return res.render("listadoCanciones", {generos:generos});
-            })
+module.exports = {
+    list: (req, res) => {
+        return res.json('hola')
     }
-
-
-};
-
-module.exports = cancionesController;
+}
