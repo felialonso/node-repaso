@@ -22,15 +22,15 @@ show: (req, res) => {
 },
 
 store: (req, res) => {
-    return res.json(req.body)
-    //DB.Cancione
-      //  .create(req.body)
-        //.then(cancione => {
-          //  return res.status(200).json({
-            //    data: cancione,
-              //  status: 200
-            //})
-        //})
+  
+    DB.Cancione
+        .create(req.body)
+        .then(cancione => {
+           return res.status(200).json({
+               data: cancione,
+                status: 200
+            })
+        })
 }
 
 
