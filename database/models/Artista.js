@@ -1,17 +1,17 @@
 module.exports = (sequelize, dataTypes) => {
 
     const artista = sequelize.define('Artista', {
-        first_name: dataTypes.STRING,
-        last_name: dataTypes.STRING,
+        nombre: dataTypes.STRING,
+        apellido: dataTypes.STRING,
     }, {
         createdAt: 'created_at',
         updatedAt: 'updated_at',
     });
 
-    artista.associate = fmodels => {
+    artista.associate = models => {
         artista.belongsToMany(models.Cancione, {
             as:"canciones",
-            through: "artista_cancion"
+            foreignKey: "artista_id"
         })
     }
 

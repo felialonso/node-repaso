@@ -21,5 +21,5 @@ module.exports = (sequelize, dataTypes) => {
             through: "artista_cancion"
         })
     }
-
+        return cancione;
 }

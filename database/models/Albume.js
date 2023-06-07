@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     
     const Albume = sequelize.define('Albume', {
-        name: dataTypes.STRING,
+        nombre: dataTypes.STRING,
         duracion: dataTypes.DOUBLE
     }, {
         createdAt: 'created_at',
