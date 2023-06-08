@@ -8,12 +8,5 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
     });
 
-    artista.associate = models => {
-        artista.belongsToMany(models.Cancione, {
-            as:"canciones",
-            foreignKey: "artista_id"
-        })
-    }
-
     return artista;
 };

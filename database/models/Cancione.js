@@ -1,6 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     
-    const cancione = sequelize.define('Cancione', {
+    const Cancione = sequelize.define('Cancione', {
+        id: { type: dataTypes.INTEGER, autoIncrement: true, allowNull:false, primaryKey: true},
         titulo: dataTypes.STRING,
         duracion: dataTypes.INTEGER,
     }, {
@@ -9,17 +10,21 @@ module.exports = (sequelize, dataTypes) => {
     });
     
 
-    cancione.associate = models => {
-        cancione.belongsTo(models.Genero, {
+    Cancione.associate = models => {
+        Cancione.belongsTo(models.Genero, {
             as:"genero",
-            foreignKey: "genero_id"
-        })
+            foreignKey:"genero_id"
+        });
 
+        Cancione.belongsTo(models.Albume, {
+            as: 'album',
+            foreignKey: 'album_id',
+          });
 
-        cancione.belongsToMany(models.Artista, {
+        Cancione.belongsTo(models.Artista, {
             as:"artistas",
-            through: "artista_cancion"
-        })
+            foreignKey: "artista_id"
+        });
     }
-        return cancione;
+        return Cancione;
 }

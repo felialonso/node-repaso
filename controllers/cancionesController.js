@@ -9,26 +9,28 @@ module.exports = {
         })
     },
 
+    listGenero: (req, res) => {
+        DB.Genero.findAll()
+        .then(generos => {
+            return res.json(generos)
+        })
+    },
+
 
 show: (req, res) => {
-    DB.Cancione
-        .findByPk(req.params.id)
-        .then(cancione => {
-            return res.status(200).json({
-                data: cancione,
-                status: 200
-            })
+    DB.Cancione.findByPk(req.params.id)
+        .then(canciones => {
+            return res.json(canciones)
         })
 },
 
 store: (req, res) => {
   
-    DB.Cancione
-        .create(req.body)
-        .then(cancione => {
+    DB.Cancione.create(req.body)
+        .then(canciones => {
            return res.status(200).json({
-               data: cancione,
-                status: 200
+            data: canciones,
+            status: 200
             })
         })
 }

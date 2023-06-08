@@ -1,16 +1,14 @@
 
 module.exports = (sequelize, dataTypes) => {
-    const Genero = sequelize.define('genero', {
+    const Genero = sequelize.define('Genero', {
         name: dataTypes.STRING,
-    }, {
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-    });
+    }, {timestamps: false});
+
 
     Genero.associate = models => {
         Genero.hasMany(models.Cancione, {
             as:"canciones",
-            foreignKey: 'genre_id'
+            foreignKey: 'genero_id'
         })
     }
 

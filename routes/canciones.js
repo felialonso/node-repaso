@@ -4,8 +4,9 @@ var router = express.Router();
 var cancionesController = require("../controllers/cancionesController");
 
 
-router.get("/", cancionesController.list);
-router.get('/:id', cancionesController.show);
-router.post('/', cancionesController.store);
+router.get("/canciones", cancionesController.list);
+router.get("/generos", cancionesController.listGenero);
+router.get('/canciones/:id', cancionesController.show);
+router.post('/canciones', cancionesController.store);
 
 module.exports = router;
